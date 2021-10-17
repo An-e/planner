@@ -1,0 +1,19 @@
+package pl.coderslab.planner.model;
+
+import javax.persistence.*;
+
+enum CategoryName {
+    DAILYROUTINES,
+    WORK,
+    EDUCATION,
+    ENTERTAINMENT
+}
+
+@Entity
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Enumerated(EnumType.STRING)
+    private CategoryName name;
+}
