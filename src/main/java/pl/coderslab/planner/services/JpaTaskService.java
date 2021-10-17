@@ -24,7 +24,7 @@ public class JpaTaskService implements TaskService {
     private final TaskRepository taskRepository;
 
     @Autowired
-    public JpaTaskService(@Qualifier("tasks") TaskRepository taskRepository) {
+    public JpaTaskService(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
@@ -53,7 +53,7 @@ public class JpaTaskService implements TaskService {
                 .collect(Collectors.toList());
     }
 
-    @Transactional
+    @Override
     public List<Task> getTasksForUser(String id) {
         return Arrays.stream(taskRepository.findTasksForUser(Long.valueOf(id)))
                 .collect(Collectors.toList());

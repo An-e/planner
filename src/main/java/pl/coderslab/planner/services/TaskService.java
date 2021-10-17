@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 public interface TaskService {
     Optional<Task> get(Long id);
 

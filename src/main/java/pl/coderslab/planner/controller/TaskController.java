@@ -30,7 +30,7 @@ public class TaskController {
     private final TaskService taskService;
 
     @Autowired
-    public TaskController(@Qualifier("taskService") TaskService taskService) {
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 

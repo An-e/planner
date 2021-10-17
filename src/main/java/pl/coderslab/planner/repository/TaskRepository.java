@@ -10,9 +10,6 @@ import pl.coderslab.planner.model.User;
 
 import javax.transaction.Transactional;
 
-@Qualifier("tasks")
-@Repository
-@Transactional
 public interface TaskRepository extends JpaRepository<Task, Long> {
     @Query("select t.startDate from Task t where t.user.id = :id")
     Task[] findTasksForUser(@Param("id") Long id);
