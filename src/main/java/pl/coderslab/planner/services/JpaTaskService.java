@@ -55,8 +55,7 @@ public class JpaTaskService implements TaskService {
 
     @Override
     public List<Task> getTasksForUser(String id) {
-        return Arrays.stream(taskRepository.findTasksForUser(Long.valueOf(id)))
-                .collect(Collectors.toList());
+        return taskRepository.findTasksForUser(Long.valueOf(id));
     }
 
 //    @Override
