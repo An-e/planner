@@ -46,10 +46,9 @@ public class JpaTaskService implements TaskService {
 
     @Override
     public List<String> getDatesForUser(String id) {
-        return taskRepository.findAll()
+        return taskRepository.findDatesForUser(Long.valueOf(id))
                 .stream()
-                .filter(task -> task.getUser().getId().equals(Long.valueOf(id)))
-                .map(task -> DateTimeFormatter.ISO_LOCAL_DATE.format(task.getStartDate().toLocalDate()))
+                .map(day -> DateTimeFormatter.ISO_LOCAL_DATE.format(day.toLocalDate()))
                 .collect(Collectors.toList());
     }
 
