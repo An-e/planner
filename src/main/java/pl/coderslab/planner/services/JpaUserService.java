@@ -2,6 +2,7 @@ package pl.coderslab.planner.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import pl.coderslab.planner.model.Task;
 import pl.coderslab.planner.model.User;
 import pl.coderslab.planner.repository.UserRepository;
 
@@ -25,5 +26,10 @@ public class JpaUserService implements UserService {
     @Override
     public List<User> getUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public void addUser(User user) {
+        userRepository.save(user);
     }
 }

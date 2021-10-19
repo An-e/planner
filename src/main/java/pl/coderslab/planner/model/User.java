@@ -18,7 +18,4 @@ public class User {
     private Long id;
     private String FirstName;
     private String LastName;
-//    @OneToMany
-//    @JoinColumn(name="id_user")
-//    private List<Task> tasks = new ArrayList<>();
 }

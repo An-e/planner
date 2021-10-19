@@ -1,5 +1,8 @@
 package pl.coderslab.planner.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 enum PriorityName {
@@ -9,7 +12,8 @@ enum PriorityName {
     LOW
 }
 
-
+@Getter
+@Setter
 @Entity
 public class Priority {
     @Id

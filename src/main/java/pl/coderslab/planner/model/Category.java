@@ -1,5 +1,8 @@
 package pl.coderslab.planner.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 enum CategoryName {
@@ -9,6 +12,8 @@ enum CategoryName {
     ENTERTAINMENT
 }
 
+@Getter
+@Setter
 @Entity
 public class Category {
     @Id

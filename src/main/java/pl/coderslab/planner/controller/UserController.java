@@ -1,10 +1,7 @@
 package pl.coderslab.planner.controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.planner.model.Category;
 import pl.coderslab.planner.model.Priority;
 import pl.coderslab.planner.model.Task;
@@ -33,5 +30,12 @@ public class UserController {
     @GetMapping("")
     List<User> all() {
         return userService.getUsers();
+    }
+
+    @PostMapping(value = "/users/add")
+    public void saveTask(@RequestBody User user) {
+        System.out.println(user.getFirstName());
+
+        userService.addUser(user);
     }
 }

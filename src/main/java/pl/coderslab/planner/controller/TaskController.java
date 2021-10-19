@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.planner.model.Category;
-import pl.coderslab.planner.model.Priority;
-import pl.coderslab.planner.model.Task;
-import pl.coderslab.planner.model.User;
+import pl.coderslab.planner.model.*;
 import pl.coderslab.planner.repository.UserRepository;
 import pl.coderslab.planner.services.TaskService;
 import pl.coderslab.planner.services.UserService;
@@ -22,7 +19,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @ResponseBody
 @RequestMapping("/sharedplanner")
 public class TaskController {
@@ -54,12 +51,17 @@ public class TaskController {
         taskService.deleteTask(id);
     }
 
-    @RequestMapping(value = "/usertasks/add", method = RequestMethod.POST)
-    public String saveBook(@RequestBody @Valid Task task, BindingResult result) {
-        if (result.hasErrors()) {
-            return "usertasks/add";
-        }
+    @PostMapping(value = "/usertasks/add")
+    public void saveTask(@RequestBody Task task) {
+
         taskService.addTask(task);
-        return "redirect:/sharedplanner/usertasks";
     }
+
+    @PostMapping(value = "/tasks/add")
+    public TaskDao saveTask(@RequestBody TaskDao task) {
+
+        return task;
+    }
+
+
 }

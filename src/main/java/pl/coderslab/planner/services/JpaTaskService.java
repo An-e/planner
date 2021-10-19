@@ -64,7 +64,7 @@ public class JpaTaskService implements TaskService {
 //                task -> task.getTitle().equals("work")
 //        ).collect(Collectors.toList());
 //    }
-
+//
     @Override
     public List<Task> getTasksForDay() {
         return taskRepository.findAll()
