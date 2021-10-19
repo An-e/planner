@@ -19,6 +19,6 @@ public class TaskDao{
     private Priority priority;
     private Category category;
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime startDate;
 }
